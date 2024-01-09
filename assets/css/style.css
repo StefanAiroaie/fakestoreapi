@@ -103,3 +103,7 @@ input {
     border: none;
     padding: .5rem;
 }
+
+.hide {
+    display: none;
+}
