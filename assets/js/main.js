@@ -1,10 +1,13 @@
 
+// api gespeichert
 const apiAllProduct = 'https://fakestoreapi.com/products';
 const apiCategories = 'https://fakestoreapi.com/products/categories'
 const apiJewelery = 'https://fakestoreapi.com/products/category/jewelery'
 const apiElectronics = 'https://fakestoreapi.com/products/category/electronics'
 const apiMen = `https://fakestoreapi.com/products/category/men's%20clothing`
 const apiWommen = `https://fakestoreapi.com/products/category/women's%20clothing`
+
+
 
 
 
@@ -18,14 +21,19 @@ const getAPI = (apiLink) => {
         })
         .catch(error => console.log(error))
 }
+
+//first api with all products
 getAPI(apiAllProduct)
 
+
+// reset DOM function
 const reset = () => {
     document.querySelector("#shopItems").innerHTML = ""
 
 }
 
 
+// the butoons functions (filter by catergory)
 let electronicsDOM = document.querySelector("#electronics");
 electronicsDOM.addEventListener("click", function () {
     reset()
@@ -34,16 +42,18 @@ electronicsDOM.addEventListener("click", function () {
 
 let JeweleryDOM = document.querySelector("#jewelery");
 JeweleryDOM.addEventListener("click", function () {
-
+    reset()
     getAPI(apiJewelery)
 })
 let menDOM = document.querySelector("#men");
 menDOM.addEventListener("click", function () {
+    reset()
     getAPI(apiMen)
 })
 
 let wommenDOM = document.querySelector("#wommen");
 wommenDOM.addEventListener("click", function () {
+    reset()
     getAPI(apiWommen)
 })
 
@@ -90,7 +100,7 @@ const showProduct = (singleProduct) => {
         pCard.appendChild(pPriceInDom)
 
         const pAddToCard = document.createElement("button")
-        pAddToCard.textContent = "Add to card id: " + product.id
+        pAddToCard.textContent = "Add to card"
         pCard.appendChild(pAddToCard)
 
         //adauga in doom divul creat pentru produs
