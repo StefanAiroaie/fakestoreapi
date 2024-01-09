@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Fakestore API</title>
+</head>
+
+<body>
+  <header>
+    <p class="logo">Super Fake Store</p>
+    <form>
+      <input type="text" id="search" placeholder="search by Title">
+      <input type="button" value="Search" onclick="searchFunc()">
+    </form>
+    <div class="filter">
+      <p>Filter by Categories</p>
+      <button id="priceUp">priceUp</button>
+      <button id="priceDown">priceDown</button>
+      <button id="electronics">electronics</button>
+      <button id="jewelery">jewelery</button>
+      <button id="men">men's clothing</button>
+      <button id="wommen">wommen's clothing</button>
+    </div>
+  </header>
+  <main>
+    <div id="shopItems">
+    </div>
+  </main>
+
+
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#shopItems {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    gap: .5rem;
+}
+
+#ithemCard {
+    border: 1px solid green;
+    padding: 0.5rem;
+    width: 300px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
