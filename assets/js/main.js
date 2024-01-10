@@ -52,6 +52,7 @@ wommenDOM.addEventListener("click", function () {
     getAPI(apiWommen)
 })
 
+
 // sort price up
 let up = document.querySelector("#priceUp");
 up.addEventListener("click", function () {
@@ -81,79 +82,20 @@ down.addEventListener("click", function () {
 })
 
 
+//search function
+function searchFunc() {
+    const searchTerm = document.querySelector("#search").value.toLowerCase();
+    console.log(searchTerm);
 
-
-
-/*
-let yearUp = document.querySelector("#yearUp");
-yearUp.addEventListener("click", function () {
-
-    let sortedYearUp = moviesCopy.sort((a, b) => a[1] - b[1]);
-
-    getAPI(apiAllProduct)
-    outputDom.innerHTML = "";
-    sortedYearUp.forEach(showMovies);
-});
-*/
-
-
-
-// searc filed aber funktiniert nicht
-const searchInput = document.querySelector("#searchInput")
-
-let searchField = []
-console.log(searchField);
-searchInput.addEventListener("input", (e) => {
-    const value = e.target.value
-    searchField.forEach(prod => {
-        const isVisible = product.title.includes(value)
-        product.element.classList.toggle("hide", !isVisible)
-    })
-
-    fetch("https://fakestoreapi.com/products")
+    fetch(apiAllProduct)
         .then(res => res.json())
         .then(data => {
-            searchField = data.map(product => {
-                console.log(data);
-                return { name: product.title }
-            })
-
+            const filteredProducts = data.filter(product => product.title.toLowerCase().includes(searchTerm));
+            reset()
+            showProduct(filteredProducts);
         })
-        .catch(error => console.log(error))
-    console.log(e);
 
-})
-
-
-/*
-
-function searchFunc() {
-    reset()
-    let searchInput = document.querySelector('#search').value.toLowerCase()
-    console.log("test" + searchInput);
-
-
-    let filter = getAPI(apiAllProduct).filter((parameter) => {
-        return parameter[0].toLowerCase().includes(searchInput) || parameter[1].includes(searchInput)
-    })
-    showMovies(filter)
-    filter.length !== 0 ? filter.forEach(showMovies) : outputDom.innerHTML = `<div class='cards'><h3>Sorry the Movie ist not available<h3></div>`
 }
-
-*/
-// getAPI(apiJewelery)
-// getAPI(apiAllProduct)
-
-// let pPriceUp = document.querySelector("#priceUp");
-// pPriceUp.addEventListener("click", function () {
-//     getAPI(apiJewelery)
-//     let sortedPriceUp = data.sort((a, b) => a[1] - b[1]);
-//     // outputDom.innerHTML = "";
-//     // sortedPriceUp.forEach(showProduct);
-//     console.log(sortedPriceUp);
-// });
-
-
 
 
 // show products function
